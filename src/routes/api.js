@@ -4,7 +4,7 @@ const dp = require('../music/dataParser')
 const router = new Router()
 
 dp.getSongsObject().then((res) => {
-    console.log('done')
+    console.log(res)
 })
 
 router.get('/id:')

@@ -23,14 +23,17 @@ const getSongsObject = async () => {
         let trackTitle = metadata.common.title;
         let trackArtist = metadata.common.artist;
         let path = `${__dirname}\\${names[i]}`
+        let name = `${names[i]}`
         let id = Date.now();
-          let trackObj = { id, path, trackTitle, trackArtist, trackDuration, encodedPicture }
+          let trackObj = { id, name, path, trackTitle, trackArtist, trackDuration, encodedPicture }
           songsObjectArray.push(trackObj);
     } catch (error) {
         console.error(error.message);
     }
   } return songsObjectArray;
 }
+
+
 
 module.exports = {
   getSongsObject

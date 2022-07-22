@@ -3,11 +3,12 @@ const fs = require('fs');
 const fm = () => {
     const filesX = fs.readdirSync(__dirname);
     const titles = filesX.filter(files => files.includes('.mp3'));
+    console.log(titles)
     return titles
 }
 
 const names = fm()
-console.log(__dirname,names.titles)
+console.log(__dirname)
 
 const mm = require('music-metadata');
 const util = require('util');

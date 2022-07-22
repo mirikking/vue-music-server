@@ -3,7 +3,6 @@ const fs = require('fs');
 const fm = () => {
     const filesX = fs.readdirSync(__dirname);
     const titles = filesX.filter(files => files.includes('.mp3'));
-    console.log(titles)
     return titles
 }
 
@@ -16,6 +15,7 @@ const util = require('util');
 let songsObjectArray = [];
 
 const getSongsObject = async () => {
+  console.log('inside getting song')
   for (let i = 0; i < names.length; i++) {
     try {
       const metadata = await mm.parseFile(`${__dirname}\\${names[i]}`);
@@ -23,8 +23,10 @@ const getSongsObject = async () => {
         let encodedPicture = `data:${picture.format};base64,${picture.data.toString('base64')}`;
         let trackDuration = metadata.format.duration;
         let trackTitle = metadata.common.title;
+        console.log(trackTitle)
         let trackArtist = metadata.common.artist;
         let path = `${__dirname}\\${names[i]}`
+        console.log(`trying to catch path ${path}?`)
         let name = `${names[i]}`
         let id = Date.now();
           let trackObj = { id, name, path, trackTitle, trackArtist, trackDuration, encodedPicture }

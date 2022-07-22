@@ -7,7 +7,7 @@ const fm = () => {
 }
 
 const names = fm()
-console.log(__dirname,titles)
+console.log(__dirname,names.titles)
 
 const mm = require('music-metadata');
 const util = require('util');

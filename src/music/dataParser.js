@@ -22,7 +22,7 @@ const getSongsObject = async () => {
         let trackDuration = metadata.format.duration;
         let trackTitle = metadata.common.title;
         let trackArtist = metadata.common.artist;
-        let path = `${__dirname}\/${names[i]}`
+        let path = `${__dirname}/${names[i]}`
         let name = `${names[i]}`
         let id = Date.now();
           let trackObj = { id, name, path, trackTitle, trackArtist, trackDuration, encodedPicture }

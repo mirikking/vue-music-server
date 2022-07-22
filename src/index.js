@@ -18,10 +18,7 @@ dp.getSongsObject().then((result) => {
         app.get(`/api/${element.name}`, (req, res) => {
             console.log(element, element.path)
             let readStream = fs.createReadStream(element.path);
-            res.writeHead(200, {
-                'Content-Type': 'audio/mp3',
-                'Content-Length': stat.size
-            })
+            res.writeHead(200)
             readStream.pipe(res);
         })
     })

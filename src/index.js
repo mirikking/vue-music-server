@@ -16,7 +16,7 @@ dp.getSongsObject().then((result) => {
     result.forEach(element => {
         element.name = encodeURIComponent(element.name);
         app.get(`/api/${element.name}`, (req, res) => {
-            let readStream = fs.createReadStream(element.path);
+            let readStream = fs.createReadStream(`./music/${element.name}`);
             res.status('200')
             readStream.pipe(res);
         })

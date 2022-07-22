@@ -16,9 +16,14 @@ dp.getSongsObject().then((result) => {
     result.forEach(element => {
         element.name = encodeURIComponent(element.name);
         app.get(`/api/${element.name}`, (req, res) => {
-            let readStream = fs.createReadStream(`./music/${element.name}`);
+            let readStream = fs.createReadStream(element.path);
             res.status('200')
             readStream.pipe(res);
         })
     })
 })
+// const PORT = process.env.PORT || 3001;
+
+// app.listen(PORT, () => {
+//     console.log(`http://localhost:${PORT}/`)
+// })

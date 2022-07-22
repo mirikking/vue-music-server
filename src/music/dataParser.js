@@ -15,8 +15,8 @@ let songsObjectArray = [];
 
 const getSongsObject = async () => {
   for (let i = 0; i < names.length; i++) {
-    console.log('lets try?')
     try {
+      console.log('inside try?')
       const metadata = await mm.parseFile(`${__dirname}\\${names[i]}`);
         let picture = metadata.common.picture[0];
         let encodedPicture = `data:${picture.format};base64,${picture.data.toString('base64')}`;
